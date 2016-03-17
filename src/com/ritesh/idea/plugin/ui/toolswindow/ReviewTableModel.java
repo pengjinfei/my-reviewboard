@@ -29,9 +29,10 @@ public class ReviewTableModel extends AbstractTableModel {
 
     public enum Columns {
         SUMMARY(0, "Summary"),
-        SUBMITTED_TO(1, "Submitted To"),
-        SUBMITTER(2, "Submitter"),
-        LAST_MODIFIED(3, "Last Modified");
+        REQUEST(1,"Request"),
+        SUBMITTED_TO(2, "Submitted To"),
+        SUBMITTER(3, "Submitter"),
+        LAST_MODIFIED(4, "Last Modified");
 
 
         private int index;
@@ -53,7 +54,7 @@ public class ReviewTableModel extends AbstractTableModel {
 
     private List<Review> reviews;
     private final String[] columnNames =
-            {Columns.SUMMARY.getName(), Columns.SUBMITTED_TO.getName(), Columns.SUBMITTER.getName(), Columns.LAST_MODIFIED.getName()};
+            {Columns.SUMMARY.getName(),Columns.REQUEST.getName(), Columns.SUBMITTED_TO.getName(), Columns.SUBMITTER.getName(), Columns.LAST_MODIFIED.getName()};
 
     @Override
     public String getColumnName(int column) {
@@ -81,10 +82,12 @@ public class ReviewTableModel extends AbstractTableModel {
             case 0:
                 return reviews.get(rowIndex).summary;
             case 1:
-                return StringUtils.join(reviews.get(rowIndex).targetPeople, ',');
+                return reviews.get(rowIndex).id;
             case 2:
-                return reviews.get(rowIndex).submitter;
+                return StringUtils.join(reviews.get(rowIndex).targetPeople, ',');
             case 3:
+                return reviews.get(rowIndex).submitter;
+            case 4:
                 return reviews.get(rowIndex).lastUpdated;
         }
         return null;

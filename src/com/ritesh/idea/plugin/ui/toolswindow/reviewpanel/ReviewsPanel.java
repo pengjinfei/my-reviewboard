@@ -89,7 +89,8 @@ public class ReviewsPanel extends JPanel {
             @Override
             public void run() {
                 reviewsTable.setModel(new ReviewTableModel(reviews));
-                reviewsTable.getColumnModel().getColumn(ReviewTableModel.Columns.SUMMARY.getIndex()).setPreferredWidth(400);
+                reviewsTable.getColumnModel().getColumn(ReviewTableModel.Columns.SUMMARY.getIndex()).setPreferredWidth(200);
+                reviewsTable.getColumnModel().getColumn(ReviewTableModel.Columns.REQUEST.getIndex()).setPreferredWidth(200);
                 reviewsTable.getColumnModel().getColumn(ReviewTableModel.Columns.SUBMITTED_TO.getIndex()).setPreferredWidth(50);
                 reviewsTable.getColumnModel().getColumn(ReviewTableModel.Columns.SUBMITTER.getIndex()).setPreferredWidth(50);
                 reviewsTable.getColumnModel().getColumn(ReviewTableModel.Columns.LAST_MODIFIED.getIndex()).setPreferredWidth(50);
